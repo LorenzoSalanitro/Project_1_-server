@@ -54,7 +54,7 @@ public void comunicate()
         System.out.println("Printing");
         output.writeBytes(modified + '\n');
         System.out.println("SERVER: elaboration ended");
-        //client.close();
+        client.close();
     }
     catch(Exception e)
     {
