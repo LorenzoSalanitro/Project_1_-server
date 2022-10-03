@@ -14,14 +14,25 @@ public class ServerStr {
     BufferedReader input;
     DataOutputStream output;
 
-
+    public ServerStr() {
+        try 
+        {
+            server = new ServerSocket(7777);
+            System.out.println("Server start execution");
+        } catch(Exception e) 
+        {
+            System.out.println(e.getMessage());   
+        } 
+    }
 public Socket waiting()
 {
     try{
-        System.out.println("Server start execution");
-        server = new ServerSocket(7777);
+        
+        System.out.println("Listening on port 7777");
+        
         client = server.accept();
-        server.close();
+        
+        //server.close();
         input = new BufferedReader(new InputStreamReader(client.getInputStream()));
         output = new DataOutputStream(client.getOutputStream());
     }
@@ -43,7 +54,7 @@ public void comunicate()
         System.out.println("Printing");
         output.writeBytes(modified + '\n');
         System.out.println("SERVER: elaboration ended");
-        client.close();
+        //client.close();
     }
     catch(Exception e)
     {
