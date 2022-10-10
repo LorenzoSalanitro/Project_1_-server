@@ -8,13 +8,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        ServerStr server = new ServerStr();
+        MultiServer topserver = new MultiServer();
 
-        for(;;)
-        {
-            server.waiting();
-            server.comunicate();
-        }
+        topserver.KickOff();
         
     }
 }

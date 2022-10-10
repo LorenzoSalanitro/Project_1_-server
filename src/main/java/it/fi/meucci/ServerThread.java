@@ -48,7 +48,7 @@ public class ServerThread extends Thread
             }
             else
             {
-                outputToClient.writeBytes(stringRecived + "received" + '\n');
+                outputToClient.writeBytes("received: " + stringRecived + '\n');
                 System.out.println("Echo on server: " + stringRecived);
             }
         }
