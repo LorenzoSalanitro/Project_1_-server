@@ -24,7 +24,7 @@ public class ServerThread extends Thread
     {
         try
         {
-            Comunicate();
+            comunicate();
         }
         catch(Exception e)
         {
@@ -32,7 +32,7 @@ public class ServerThread extends Thread
         }
     }
 
-    public void Comunicate() throws Exception
+    public void comunicate() throws Exception
     {
         inputFromClient = new BufferedReader(new InputStreamReader(client.getInputStream()));
         outputToClient = new DataOutputStream(client.getOutputStream());
@@ -44,6 +44,12 @@ public class ServerThread extends Thread
             {
                 outputToClient.writeBytes(stringRecived + "server closing" + '\n');
                 System.out.println("Echo on server closing: " + stringRecived);
+                break;
+            }
+            else if(stringRecived.equals("CLOSE"))
+            {
+                MultiServer.spegni();
+                server.close();
                 break;
             }
             else
